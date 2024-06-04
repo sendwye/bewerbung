@@ -1,0 +1,32 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int valid_triangle(float a, float b, float c);
+
+int main(void)
+{
+    float t, t1, t2;
+do
+{
+    t = get_float("triangle side1: ");
+    t1 = get_float("triangle side2: ");
+    t2 = get_float("triangle side3: ");
+
+    printf("Is the triangle valid? %d\n", valid_triangle(t,t1,t2));
+}
+while (t && t1 && t < 0);
+
+}
+
+
+int valid_triangle(float a, float b, float c)
+{
+    if (a+b > c && a+c > b && b+c > a && b+a > c && c+b > a && c+a > b)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
